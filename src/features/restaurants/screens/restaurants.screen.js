@@ -34,7 +34,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           return (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("RestaurantDetails");
+                navigation.navigate("RestaurantDetails", { test: "hi" });
               }}
             >
               <Spacer position="bottom" size="large">
