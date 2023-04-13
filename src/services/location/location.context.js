@@ -14,11 +14,16 @@ export const LocationContextProvider = ({ children }) => {
   const onSearch = (searchKeyword) => {
     setIsLoading(true);
     setKeyword(searchKeyword);
-    if (!searchKeyword.length) {
+  };
+
+  //When keyword changes, we will do an API call
+  //keyword changes when onSearch is called
+  useEffect(() => {
+    if (!keyword.length) {
       // Don't do anything
       return;
     }
-    locationRequest(searchKeyword.toLowerCase()) //Fake API request
+    locationRequest(keyword.toLowerCase()) //Fake API request
       .then(locationTransform)
       .then((result) => {
         setIsLoading(false);
@@ -30,7 +35,7 @@ export const LocationContextProvider = ({ children }) => {
         setError(err);
         console.log(err);
       });
-  };
+  }, [keyword]);
 
   return (
     <LocationContext.Provider
