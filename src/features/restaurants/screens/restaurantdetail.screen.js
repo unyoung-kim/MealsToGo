@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components";
+import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { RestaurantDetailComponent } from "../components/restaurant-detail-card.component";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
@@ -8,11 +10,11 @@ const SafeArea = styled(SafeAreaView)`
 `;
 
 export const RestaurantDetailScreen = ({ route, nagivation }) => {
-  const { test } = route.params;
-  console.log(route.test);
+  const { restaurant } = route.params;
   return (
     <SafeArea>
-      <Text>{test}</Text>
+      <RestaurantInfoCard restaurant={restaurant} />
+      <RestaurantDetailComponent />
     </SafeArea>
   );
 };

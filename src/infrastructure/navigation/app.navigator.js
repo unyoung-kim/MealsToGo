@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RestaurantsScreen } from "../../features/restaurants/screens/restaurants.screen";
 import { Text } from "react-native";
 import { RestaurantNavigator } from "./restaurant.navigator";
+import { MapScreen } from "../../features/map/screens/map.screen";
 
 const Settings = () => <Text>Settings</Text>;
 const Map = () => <Text>Map</Text>;
@@ -37,7 +38,7 @@ export const AppNavigator = () => {
         />
         <Tab.Screen
           name="Map"
-          component={Map}
+          component={MapScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen

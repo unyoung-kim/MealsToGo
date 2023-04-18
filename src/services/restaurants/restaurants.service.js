@@ -18,7 +18,6 @@ export const restaurantsTransform = ({ results = [] }) => {
     restaurant.photos = restaurant.photos.map((p) => {
       return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
     });
-    console.log(restaurant);
 
     return {
       ...restaurant,
