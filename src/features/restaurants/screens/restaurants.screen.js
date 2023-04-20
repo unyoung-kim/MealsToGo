@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   StatusBar,
-  StyleSheet,
   Text,
   View,
   SafeAreaView,
@@ -14,6 +13,8 @@ import styled from "styled-components";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
+import { FavouritesContext } from "../../../services/favorites/favorites.context";
+import { FavouritesBar } from "../../../components/favourites/favourites-bar";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
@@ -22,19 +23,31 @@ const SafeArea = styled(SafeAreaView)`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, isLoading, isError } = useContext(RestaurantsContext);
+  const { favourites } = useContext(FavouritesContext);
+  const [isToggled, setIsToggled] = useState(false);
+
   return (
     <SafeArea>
       {isLoading && (
         <ActivityIndicator animating={true} color={MD2Colors.red800} />
       )}
-      <Search />
+      <Search
+        isFavouritesToggled={isToggled}
+        onFavouritesToggled={() => setIsToggled(!isToggled)}
+      />
+      {isToggled && (
+        <FavouritesBar
+          favourites={favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       <FlatList
         data={restaurants}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("RestaurantDetails", { restuarant: item });
+                navigation.navigate("RestaurantDetails", { restaurant: item });
               }}
             >
               <Spacer position="bottom" size="large">

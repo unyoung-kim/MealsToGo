@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 const Item = styled.View`
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  margin: 10px;
   max-width: 120px;
 `;
 
@@ -15,7 +15,7 @@ const CompactImage = styled(Image)`
   height: 100px;
 `;
 
-export const MapCallout = ({ restaurant }) => {
+export const CompactRestaurantInfo = ({ restaurant }) => {
   return (
     <Item>
       <CompactImage source={{ uri: restaurant.photos[0] }} />

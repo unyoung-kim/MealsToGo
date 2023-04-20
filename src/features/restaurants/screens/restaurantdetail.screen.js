@@ -9,8 +9,9 @@ const SafeArea = styled(SafeAreaView)`
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
-export const RestaurantDetailScreen = ({ route, nagivation }) => {
+export const RestaurantDetailScreen = ({ route }) => {
   const { restaurant } = route.params;
+  console.log(route);
   return (
     <SafeArea>
       <RestaurantInfoCard restaurant={restaurant} />
