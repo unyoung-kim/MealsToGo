@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 const Item = styled.View`
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 5px;
   max-width: 120px;
 `;
 

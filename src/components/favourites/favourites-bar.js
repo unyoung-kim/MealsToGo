@@ -13,6 +13,7 @@ export const FavouritesBar = ({ favourites, onNavigate }) => {
   }
   return (
     <FavouritesContainer>
+      <Text>Favourites</Text>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
         {favourites.map((restaurant) => {
           return (
